@@ -4,7 +4,6 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:water_reminder/secondpage.dart';
 import 'notification_api.dart';
-import 'notificationservice.dart';
 
 int horas = 1;
 
@@ -55,8 +54,8 @@ class _MainScreenState extends State<MainScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     NotificationApi.showScheduledNotification(
-                      title: 'Miku diz:',
-                      body: 'Gatita, toma awa :3',
+                      title: 'Lembrete de Água:',
+                      body: 'Hora de beber água',
                       payload: 'Lembrete',
                       scheduledDate: DateTime.now().add(Duration(hours: horas)),
                     );
@@ -162,21 +161,6 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     width: 250,
                     height: 45,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 245,
-              ),
-              SizedBox(
-                height: 100,
-                child: Center(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("images/tx.png"),
-                      ),
-                    ),
                   ),
                 ),
               ),

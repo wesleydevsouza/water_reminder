@@ -43,9 +43,9 @@ class _SecondPageState extends State<MainScreen> {
             GestureDetector(
               onTap: () {
                 NotificationApi.showNotification(
-                  title: 'Lembrete de Água',
-                  body: 'Gatita, toma awa!',
-                  payload: 'water.reminder',
+                  title: 'Lembrete de Água:',
+                  body: 'Hora de Tomar Água',
+                  payload: 'Lembrete',
                 );
               },
               child: Container(

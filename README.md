@@ -14,4 +14,5 @@ To Do:
 
 Screenshot do protótipo:
 
-![Screenshot_1673371113](https://user-images.githubusercontent.com/74992013/211619086-e252999c-5095-434e-83b2-d0e9d335abc0.png)
+![Screenshot_1673371113](https://user-images.githubusercontent.com/74992013/211620244-da816b46-69dc-4903-84e7-4e173a0f48cb.png)
+

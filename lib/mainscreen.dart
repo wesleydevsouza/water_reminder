@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
-import 'package:water_reminder/secondpage.dart';
+import 'package:water_reminder/main.dart';
 import 'notification_api.dart';
 
 int horas = 1;
@@ -21,16 +21,7 @@ class _MainScreenState extends State<MainScreen> {
 
     NotificationApi.init();
     tz.initializeTimeZones();
-    listenNotifications();
   }
-
-  void listenNotifications() =>
-      NotificationApi.onNotifications.stream.listen(onClickedNotification);
-
-  void onClickedNotification(String? payload) =>
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => SecondPage(payload: payload),
-      ));
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +45,12 @@ class _MainScreenState extends State<MainScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     NotificationApi.showScheduledNotification(
-                      title: 'Lembrete de Água:',
-                      body: 'Hora de beber água',
+                      title: 'Miku diz:',
+                      body: 'Gatita, toma awa :3',
                       payload: 'Lembrete',
-                      scheduledDate: DateTime.now().add(Duration(hours: horas)),
+                      repeatInterval: RepeatInterval.hourly,
+                      // scheduledDate:
+                      //     DateTime.now().add(Duration(minutes: horas)),
                     );
 
                     final snackBar = SnackBar(
@@ -161,6 +154,21 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     width: 250,
                     height: 45,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 245,
+              ),
+              SizedBox(
+                height: 100,
+                child: Center(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("images/tx.png"),
+                      ),
+                    ),
                   ),
                 ),
               ),

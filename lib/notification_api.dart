@@ -19,44 +19,26 @@ class NotificationApi {
     );
   }
 
-  static Future showNotification({
-    int id = 0,
-    String? title,
-    String? body,
-    String? payload,
-  }) async =>
-      _notifications.show(
-        id,
-        title,
-        body,
-        await _notificationsDetails(),
-        payload: payload,
-      );
-
   static Future showScheduledNotification({
     int id = 0,
     String? title,
     String? body,
     String? payload,
-    required DateTime scheduledDate,
+    required RepeatInterval repeatInterval,
   }) async =>
-      _notifications.zonedSchedule(
+      _notifications.periodicallyShow(
         id,
         title,
         body,
-        //horas, minutos, segundos
-        // _scheduleDaily(Time(8, 30, 23)),
-
-        tz.TZDateTime.from(scheduledDate, tz.local),
+        RepeatInterval.everyMinute,
         await _notificationsDetails(),
         payload: payload,
         androidAllowWhileIdle: true,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
       );
 
   static void init({bool initScheduled = false}) async {
     final android =
+        // ignore: prefer_const_constructors
         AndroidInitializationSettings('@drawable/ic_flutternotification');
     final settings = InitializationSettings(android: android);
 
@@ -66,17 +48,6 @@ class NotificationApi {
         // onNotifications.add(payload);
       },
     );
-  }
-
-  static tz.TZDateTime _scheduleDaily(Time time) {
-    final now = tz.TZDateTime.now(tz.local);
-    final scheduledDate = tz.TZDateTime(tz.local, now.year, now.month, now.day,
-        time.hour, time.minute, time.second);
-
-//verificando se o dia ja passou e agendando para o próximo dia caso tenha passado do horário
-    return scheduledDate.isBefore(now)
-        ? scheduledDate.add(Duration(days: 1))
-        : scheduledDate;
   }
 
   Future<void> cancelAllNotifications() async {

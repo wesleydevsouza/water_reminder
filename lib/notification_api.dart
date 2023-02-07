@@ -30,7 +30,7 @@ class NotificationApi {
         id,
         title,
         body,
-        RepeatInterval.everyMinute,
+        RepeatInterval.hourly,
         await _notificationsDetails(),
         payload: payload,
         androidAllowWhileIdle: true,
@@ -45,7 +45,7 @@ class NotificationApi {
     await _notifications.initialize(
       settings,
       onDidReceiveNotificationResponse: (payload) async {
-        // onNotifications.add(payload);
+        //onNotifications.add(payload);
       },
     );
   }

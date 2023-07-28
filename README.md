@@ -1,4 +1,4 @@
-Um app simples que fiz para minha namorada para enviar periódicamente notificações para lembrar de tomar água
+Um app simples que fiz para enviar periódicamente notificações para lembrar de tomar água
 
 Background por Kore Michi
 Toy House https://toyhou.se/kore-michi

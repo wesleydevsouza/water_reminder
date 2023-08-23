@@ -46,7 +46,7 @@ class _MainScreenState extends State<MainScreen> {
                   onPressed: () {
                     NotificationApi.showScheduledNotification(
                       title: 'Miku diz:',
-                      body: 'Gatita, toma awa :3',
+                      body: 'Hora de tomar água',
                       payload: 'Lembrete',
                       repeatInterval: RepeatInterval.hourly,
                       // scheduledDate:

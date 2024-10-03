@@ -17,7 +17,7 @@ class TopBar extends StatelessWidget {
             Navigator.of(context).pop();
           },
           child: Padding(
-            padding: const EdgeInsets.only(left: 10.0, bottom: 10, top: 10),
+            padding: const EdgeInsets.only(left: 10.0, bottom: 10, top: 20),
             child: Icon(
               Icons.arrow_back,
               color: Colors.white,

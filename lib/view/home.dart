@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Olá nome, lembre-se de beber 2L de água por dia",
+                      "Olá Alex, lembre-se de beber 2L de água por dia",
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: Colors.white,
                             fontSize: SizeConfig.textMultiplier * 3,

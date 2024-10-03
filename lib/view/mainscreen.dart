@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
-import 'package:water_reminder/main.dart';
-import 'notification_api.dart';
+import '../helpers/notification_helper.dart';
 
 int horas = 1;
 
@@ -26,19 +24,20 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF2c0824),
+      backgroundColor: const Color(0xFF2c0824),
       body: Center(
         child: Container(
           width: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("images/bg.jpg"), fit: BoxFit.cover),
+              image: AssetImage("images/bg.jpg"),
+              fit: BoxFit.cover,
+            ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            //mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 320,
               ),
               SizedBox(
@@ -49,23 +48,21 @@ class _MainScreenState extends State<MainScreen> {
                       body: 'Hora de tomar água',
                       payload: 'Lembrete',
                       repeatInterval: RepeatInterval.hourly,
-                      // scheduledDate:
-                      //     DateTime.now().add(Duration(minutes: horas)),
                     );
 
                     final snackBar = SnackBar(
                       content: Text(
-                        'Agendado para ' + horas.toString() + ' Hora(s)!',
-                        style: TextStyle(fontSize: 24),
+                        'Agendado para $horas Hora(s)!',
+                        style: const TextStyle(fontSize: 24),
                       ),
-                      backgroundColor: Color(0xff38ffe2),
+                      backgroundColor: const Color(0xff38ffe2),
                     );
                     ScaffoldMessenger.of(context)
                       ..removeCurrentSnackBar()
                       ..showSnackBar(snackBar);
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.transparent,
+                    backgroundColor: Colors.transparent,
                     elevation: 0,
                     shape: const CircleBorder(),
                   ),
@@ -76,8 +73,7 @@ class _MainScreenState extends State<MainScreen> {
                           color: Colors.cyanAccent.withOpacity(0.3),
                           spreadRadius: 12,
                           blurRadius: 12,
-                          offset:
-                              const Offset(0, 0), // changes position of shadow
+                          offset: const Offset(0, 0),
                         ),
                       ],
                       gradient: const LinearGradient(
@@ -90,18 +86,18 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Center(
+                    width: 250,
+                    height: 45,
+                    child: const Center(
                       child: Text(
                         "Lembre-me de tomar água",
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
-                    width: 250,
-                    height: 45,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SizedBox(
@@ -109,7 +105,7 @@ class _MainScreenState extends State<MainScreen> {
                   onPressed: () {
                     NotificationApi().cancelAllNotifications();
 
-                    final snackBar = SnackBar(
+                    const snackBar = SnackBar(
                       content: Text(
                         'Lembretes limpos!',
                         style: TextStyle(fontSize: 24),
@@ -121,7 +117,7 @@ class _MainScreenState extends State<MainScreen> {
                       ..showSnackBar(snackBar);
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.transparent,
+                    backgroundColor: Colors.transparent,
                     elevation: 0,
                     shape: const CircleBorder(),
                   ),
@@ -132,8 +128,7 @@ class _MainScreenState extends State<MainScreen> {
                           color: Colors.cyanAccent.withOpacity(0.3),
                           spreadRadius: 12,
                           blurRadius: 12,
-                          offset:
-                              const Offset(0, 0), // changes position of shadow
+                          offset: const Offset(0, 0),
                         ),
                       ],
                       gradient: const LinearGradient(
@@ -146,18 +141,18 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Center(
+                    width: 250,
+                    height: 45,
+                    child: const Center(
                       child: Text(
                         "Limpar Lembretes",
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
-                    width: 250,
-                    height: 45,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 245,
               ),
               SizedBox(

@@ -10,8 +10,7 @@ class NotificationApi {
   static const int hoursPerDay = 24;
 
   static Future _notificationsDetails() async {
-    // ignore: prefer_const_constructors
-    return NotificationDetails(
+    return const NotificationDetails(
       android: AndroidNotificationDetails('main_channel', 'Main Channel',
           importance: Importance.max,
           priority: Priority.max,
@@ -44,9 +43,7 @@ class NotificationApi {
 
     await _notifications.initialize(
       settings,
-      onDidReceiveNotificationResponse: (payload) async {
-        //onNotifications.add(payload);
-      },
+      onDidReceiveNotificationResponse: (payload) async {},
     );
   }
 

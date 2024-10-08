@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:water_reminder/view/home.dart';
 import 'package:water_reminder/view/mainscreen.dart';
+import 'package:water_reminder/view/profile_view.dart';
 import 'package:water_reminder/view/reminder_config_view.dart';
 
 class RouteGenerator {
@@ -21,6 +22,11 @@ class RouteGenerator {
       case '/reminderconfig':
         return MaterialPageRoute(
           builder: (context) => ReminderConfig(),
+        );
+
+      case '/profile':
+        return MaterialPageRoute(
+          builder: (context) => Profile(),
         );
 
       default:

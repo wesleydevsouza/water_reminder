@@ -4,7 +4,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
-class NotificationApi {
+class NotificationHelper {
   static final _notifications = FlutterLocalNotificationsPlugin();
   static final onNotifications = BehaviorSubject<String?>();
   static const int hoursPerDay = 24;
@@ -36,10 +36,9 @@ class NotificationApi {
       );
 
   static void init({bool initScheduled = false}) async {
-    final android =
-        // ignore: prefer_const_constructors
+    const android =
         AndroidInitializationSettings('@drawable/ic_flutternotification');
-    final settings = InitializationSettings(android: android);
+    const settings = InitializationSettings(android: android);
 
     await _notifications.initialize(
       settings,

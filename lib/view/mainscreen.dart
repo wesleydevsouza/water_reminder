@@ -17,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
 
-    NotificationApi.init();
+    NotificationHelper.init();
     tz.initializeTimeZones();
   }
 
@@ -43,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
               SizedBox(
                 child: ElevatedButton(
                   onPressed: () {
-                    NotificationApi.showScheduledNotification(
+                    NotificationHelper.showScheduledNotification(
                       title: 'Miku diz:',
                       body: 'Hora de tomar água',
                       payload: 'Lembrete',
@@ -103,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
               SizedBox(
                 child: ElevatedButton(
                   onPressed: () {
-                    NotificationApi().cancelAllNotifications();
+                    NotificationHelper().cancelAllNotifications();
 
                     const snackBar = SnackBar(
                       content: Text(

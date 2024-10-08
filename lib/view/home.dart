@@ -25,7 +25,9 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
                       child: Padding(
                         padding: const EdgeInsets.only(top: 16, right: 16),
                         child: ClipOval(

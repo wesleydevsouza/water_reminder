@@ -11,11 +11,6 @@ class RouteGenerator {
     switch (settings.name) {
       case '/intro':
         return MaterialPageRoute(
-          builder: (context) => MainScreen(),
-        );
-
-      case '/home':
-        return MaterialPageRoute(
           builder: (context) => Home(),
         );
 

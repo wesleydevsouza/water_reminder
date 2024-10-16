@@ -18,22 +18,34 @@ class NotificationHelper {
     );
   }
 
-  static Future showScheduledNotification({
+  // Agora aceita as horas de início e término
+  static bool _isWithinNotificationHours(int startHour, int endHour) {
+    final now = DateTime.now();
+    final hour = now.hour;
+    return hour >= startHour && hour < endHour;
+  }
+
+  static Future<void> showScheduledNotification({
     int id = 0,
     String? title,
     String? body,
     String? payload,
     required RepeatInterval repeatInterval,
-  }) async =>
-      _notifications.periodicallyShow(
+    required int startHour,
+    required int endHour,
+  }) async {
+    if (_isWithinNotificationHours(startHour, endHour)) {
+      await _notifications.periodicallyShow(
         id,
         title,
         body,
-        RepeatInterval.hourly,
+        repeatInterval,
         await _notificationsDetails(),
         payload: payload,
         androidAllowWhileIdle: true,
       );
+    }
+  }
 
   static void init({bool initScheduled = false}) async {
     const android =

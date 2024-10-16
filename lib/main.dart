@@ -30,9 +30,9 @@ class _MyAppState extends State<MyApp> {
 
       return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Portfolio',
+        title: 'Miku Water Reminder',
         theme: AppTheme.mikuTheme,
-        initialRoute: '/home',
+        initialRoute: '/intro',
         onGenerateRoute: RouteGenerator.generateRoute,
         navigatorKey: navigatorKey,
       );

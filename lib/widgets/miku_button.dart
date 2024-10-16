@@ -36,7 +36,10 @@ class MikuButton extends StatelessWidget {
           padding: EdgeInsets.zero,
           child: Text(
             textButton!,
-            style: Theme.of(context).textTheme.bodyLarge,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: Colors.blue.shade900),
           ),
         ),
       ),

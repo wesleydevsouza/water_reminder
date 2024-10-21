@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:water_reminder/view/home.dart';
-import 'package:water_reminder/view/mainscreen.dart';
+import 'package:water_reminder/view/home_view.dart';
+import 'package:water_reminder/view/intro_view.dart';
+import 'package:water_reminder/view/onboard.dart';
 import 'package:water_reminder/view/profile_view.dart';
 import 'package:water_reminder/view/reminder_config_view.dart';
 
@@ -11,21 +10,31 @@ class RouteGenerator {
     switch (settings.name) {
       case '/intro':
         return MaterialPageRoute(
-          builder: (context) => Home(),
+          builder: (context) => const Intro(),
+        );
+
+      case '/home':
+        return MaterialPageRoute(
+          builder: (context) => const Home(),
         );
 
       case '/reminderconfig':
         return MaterialPageRoute(
-          builder: (context) => ReminderConfig(),
+          builder: (context) => const ReminderConfig(),
         );
 
       case '/profile':
         return MaterialPageRoute(
-          builder: (context) => Profile(),
+          builder: (context) => const Profile(),
+        );
+
+      case '/onboard':
+        return MaterialPageRoute(
+          builder: (context) => const OnboardingExample(),
         );
 
       default:
-        return MaterialPageRoute(builder: (context) => Home());
+        return MaterialPageRoute(builder: (context) => const Home());
     }
   }
 }

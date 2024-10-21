@@ -18,6 +18,7 @@ class ReminderConfig extends StatefulWidget {
 
 class _ReminderConfigState extends State<ReminderConfig> {
   int horas = 1;
+  TimeOfDay selectedTime = TimeOfDay.now();
 
   @override
   void initState() {
@@ -134,18 +135,31 @@ class _ReminderConfigState extends State<ReminderConfig> {
                           height: SizeConfig.heightMultiplier * 4,
                         ),
                         //Custom
-                        Container(
-                          height: SizeConfig.heightMultiplier * 20,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(300),
-                            border: Border.all(
-                                color: Colors.white,
-                                style: BorderStyle.solid,
-                                width: 3),
-                          ),
-                          child: Image.asset(
-                            Images.time3,
-                            height: SizeConfig.heightMultiplier * 8,
+                        GestureDetector(
+                          onTap: (() async {
+                            final TimeOfDay? timeOfDay = await showTimePicker(
+                                context: context,
+                                initialTime: selectedTime,
+                                initialEntryMode: TimePickerEntryMode.input);
+                            if (timeOfDay != null) {
+                              setState(() {
+                                selectedTime = timeOfDay;
+                              });
+                            }
+                          }),
+                          child: Container(
+                            height: SizeConfig.heightMultiplier * 20,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(300),
+                              border: Border.all(
+                                  color: Colors.white,
+                                  style: BorderStyle.solid,
+                                  width: 3),
+                            ),
+                            child: Image.asset(
+                              Images.time3,
+                              height: SizeConfig.heightMultiplier * 8,
+                            ),
                           ),
                         ),
                         SizedBox(

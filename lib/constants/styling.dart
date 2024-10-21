@@ -19,45 +19,60 @@ class AppTheme {
   static const Color corFonte = Colors.white;
   static const Color corFonte2 = Colors.black;
 
-  static final TextStyle tituloTopo = GoogleFonts.roboto(
-    color: corLogo,
+  //Texto
+  static const Color corTituloDark = Color(0xFF137a7f);
+  static const Color corTituloLight = Color(0xFFF8FCF6);
+
+  //Widgets
+  static const Color corContainer = Color(0xFFF8FCF6);
+  static const Color corBorda = Color(0xff38ffe2);
+  static const Color corBordaDisabilitada = Color(0xff52c7ad);
+
+  static final TextStyle titulo = GoogleFonts.josefinSans(
+    color: corTituloDark,
     fontWeight: FontWeight.bold,
-    letterSpacing: 2,
-    fontSize: 26,
+    fontSize: 32,
   );
 
-  static final TextStyle tituloTopo2 = GoogleFonts.pacifico(
+  static final TextStyle tituloLight = GoogleFonts.josefinSans(
     color: corLogo2,
     fontWeight: FontWeight.bold,
     letterSpacing: 2,
     fontSize: 20,
   );
 
-  static final TextStyle subTitulo = GoogleFonts.poiretOne(
-    color: corFonte,
+  static final TextStyle subTitulo = GoogleFonts.sourceCodePro(
+    color: corTituloDark,
     fontWeight: FontWeight.bold,
-    fontSize: 16,
+    fontSize: 26,
   );
 
-  static final TextStyle subTitulo2 = GoogleFonts.poiretOne(
+  static final TextStyle subTituloLight = GoogleFonts.sourceCodePro(
     color: corFonte,
     fontWeight: FontWeight.bold,
     fontSize: 20,
     letterSpacing: 2,
   );
 
-  static final TextStyle textoGeral = GoogleFonts.roboto(
-    color: corFonte,
+  static final TextStyle textoGeral = GoogleFonts.spaceGrotesk(
+    color: corTituloDark,
     fontWeight: FontWeight.bold,
     fontSize: 18,
   );
 
+  static final TextStyle labelText = GoogleFonts.lexend(
+    color: corFonte2,
+    fontWeight: FontWeight.bold,
+    fontSize: 14,
+  );
+
   static final TextTheme lightTextTheme = TextTheme(
-    displayLarge: tituloTopo,
-    displayMedium: tituloTopo2,
-    titleMedium: subTitulo,
-    titleSmall: subTitulo2,
-    bodyLarge: textoGeral,
+    titleLarge: titulo, // Title
+    titleMedium: tituloLight,
+    displayLarge: subTitulo, // Sub-title
+    displayMedium: subTituloLight,
+    bodyLarge: textoGeral, // Body
+    labelLarge: labelText, // Label
   );
 
   static final ThemeData mikuTheme = ThemeData(

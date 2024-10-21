@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/constants/styling.dart';
 
 //import 'package:flutter/rendering.dart';
@@ -18,11 +19,14 @@ class Background extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          color: AppTheme.corScaffold,
+          color: Colors.transparent,
           child: Image.asset(
-            Images.drink,
+            Images.bg2,
+            height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            fit: BoxFit.fill,
+            fit: SizeConfig.screenHeight < 600
+                ? BoxFit.fitWidth
+                : BoxFit.fitHeight,
             colorBlendMode: BlendMode.dstATop,
           ),
         ),

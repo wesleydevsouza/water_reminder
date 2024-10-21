@@ -34,6 +34,12 @@ dependencies:
   rxdart: ^0.27.1
   flutter_launcher_icons: 
   google_fonts: ^5.0.0
+  flutter_chat_bubble: ^2.0.2
+  #animations
+  animated_text_kit: ^4.2.2
+  page_route_transition: ^3.1.2
+  animated_page_transition: ^0.0.1+2
+  concentric_transition: ^1.0.3
 
 flutter_icons:
   image_path: "images/miku.png"

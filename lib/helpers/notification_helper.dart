@@ -18,7 +18,6 @@ class NotificationHelper {
     );
   }
 
-  // Agora aceita as horas de início e término
   static bool _isWithinNotificationHours(int startHour, int endHour) {
     final now = DateTime.now();
     final hour = now.hour;

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/routes.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/constants/styling.dart';
+import 'package:water_reminder/providers/name_provider.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -25,17 +27,24 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      SizeConfig().init(constraints);
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => NomeProvider(),
+        ),
+      ],
+      child: LayoutBuilder(builder: (context, constraints) {
+        SizeConfig().init(constraints);
 
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Miku Water Reminder',
-        theme: AppTheme.mikuTheme,
-        initialRoute: '/intro',
-        onGenerateRoute: RouteGenerator.generateRoute,
-        navigatorKey: navigatorKey,
-      );
-    });
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Miku Water Reminder',
+          theme: AppTheme.mikuTheme,
+          initialRoute: '/splash',
+          onGenerateRoute: RouteGenerator.generateRoute,
+          navigatorKey: navigatorKey,
+        );
+      }),
+    );
   }
 }

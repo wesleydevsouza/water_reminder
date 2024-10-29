@@ -40,6 +40,9 @@ dependencies:
   page_route_transition: ^3.1.2
   animated_page_transition: ^0.0.1+2
   concentric_transition: ^1.0.3
+  shared_preferences: ^2.0.15
+  provider: ^6.0.3
+  wave: ^0.2.0
 
 flutter_icons:
   image_path: "images/miku.png"

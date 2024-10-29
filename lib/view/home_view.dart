@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/images.dart';
 import 'package:water_reminder/constants/size_config.dart';
+import 'package:water_reminder/providers/name_provider.dart';
 import 'package:water_reminder/widgets/miku_card.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
   Widget build(BuildContext context) {
+    final nomeProvider = Provider.of<NomeProvider>(context);
+    final String nome = nomeProvider.nome ?? '';
+
     return SafeArea(
       child: PopScope(
         canPop: false,
@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Olá nome, lembre-se de beber 2L de água por dia",
+                      "Olá $nome, lembre-se de beber 2L de água por dia",
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: Colors.white,
                             fontSize: SizeConfig.textMultiplier * 3,

@@ -15,4 +15,7 @@ class Images {
   static const String time1 = "assets/images/time1.png";
   static const String time2 = "assets/images/time2.png";
   static const String time3 = "assets/images/time3.png";
+
+  //Animations
+  static const String animWater = "assets/images/wtr_anim.gif";
 }

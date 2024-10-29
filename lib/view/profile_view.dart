@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/images.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/constants/styling.dart';
+import 'package:water_reminder/providers/name_provider.dart';
 import 'package:water_reminder/widgets/miku_button.dart';
 import 'package:water_reminder/widgets/top_bar.dart';
 
@@ -10,6 +12,9 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final nomeProvider = Provider.of<NomeProvider>(context);
+    final String nome = nomeProvider.nome ?? '';
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -35,7 +40,7 @@ class Profile extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
-                      "Olá Alex, já bebeu água hoje?",
+                      "Olá $nome, já bebeu água hoje?",
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: Colors.white,
                             fontSize: SizeConfig.textMultiplier * 3,

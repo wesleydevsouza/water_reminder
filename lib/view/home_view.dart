@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/background.dart';
 import 'package:water_reminder/constants/images.dart';
 import 'package:water_reminder/constants/size_config.dart';
+import 'package:water_reminder/constants/styling.dart';
 import 'package:water_reminder/providers/name_provider.dart';
 import 'package:water_reminder/widgets/miku_card.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
+
+  String getGreeting() {
+    final hour = DateTime.now().hour;
+
+    if (hour >= 5 && hour < 12) {
+      return 'Bom dia';
+    } else if (hour >= 12 && hour < 18) {
+      return 'Boa tarde';
+    } else {
+      return 'Boa noite';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +40,39 @@ class Home extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16.0, left: 24),
+                        child: RichText(
+                          textAlign: TextAlign.left,
+                          textDirection: TextDirection.ltr,
+                          text: TextSpan(
+                            style: GoogleFonts.robotoSlab(
+                              color: Colors.white70,
+                              fontWeight: FontWeight.normal,
+                              fontSize: SizeConfig.textMultiplier * 2.8,
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: getGreeting(),
+                              ),
+                              TextSpan(
+                                text: '\n$nome',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      color: Colors.white,
+                                      fontSize: SizeConfig.textMultiplier * 3.2,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 3,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(context, '/profile');
@@ -47,20 +92,6 @@ class Home extends StatelessWidget {
                   ),
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 1,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Olá $nome, lembre-se de beber 2L de água por dia",
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: Colors.white,
-                              fontSize: SizeConfig.textMultiplier * 3,
-                            ),
-                        overflow: TextOverflow.clip,
-                      ),
-                    ),
                   ),
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 30,

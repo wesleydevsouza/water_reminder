@@ -21,12 +21,12 @@ class AppTheme {
   static const Color corTituloDark = Color(0xFF137a7f);
   static const Color corTituloLight = Color(0xFFF8FCF6);
   static const Color corLogo = Color(0xFF38ffe2);
-  static const Color corLogo2 = Color(0xFFde1c81);
+  static const Color corLogo2 = Color(0xFFe12885);
 
   //BG
   static const Color corBGIntro1 = Color(0xFF0043D0);
-  static const Color corBGIntro2 = Color(0xff38ffe2);
-  static const Color corBGIntro3 = Color(0xFFde1c81);
+  static const Color corBGIntro2 = Color(0xFF31e6f0);
+  static const Color corBGIntro3 = Color(0xFFe12885);
 
   //Widgets
   static const Color corContainer = Color(0xFFF8FCF6);

@@ -85,6 +85,7 @@ class _IntroState extends State<Intro> {
                     onPressed: () {
                       final nome = _nomeSolicitadoController.text.trim();
                       if (nome.isNotEmpty) {
+                        FocusManager.instance.primaryFocus?.unfocus();
                         nomeProvider.setConfig(nome);
                         Navigator.pushNamed(context, '/slide');
                       } else {

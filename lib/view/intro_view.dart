@@ -1,10 +1,13 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/background.dart';
+import 'package:water_reminder/constants/images.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/providers/name_provider.dart';
 import 'package:water_reminder/widgets/fade_widget.dart';
 import 'package:water_reminder/widgets/miku_button.dart';
+import 'package:water_reminder/widgets/miku_snackbar.dart';
 import 'package:water_reminder/widgets/miku_textfield.dart';
 
 class Intro extends StatefulWidget {
@@ -34,6 +37,7 @@ class _IntroState extends State<Intro> {
     final nomeProvider = Provider.of<NomeProvider>(context);
 
     return Background(
+      image: Images.bg2,
       child: SafeArea(
         child: PopScope(
           canPop: false,
@@ -66,6 +70,9 @@ class _IntroState extends State<Intro> {
                     child: MikuTextField(
                       controller: _nomeSolicitadoController,
                       label: "Nome",
+                      onChanged: ((value) {
+                        setState(() {});
+                      }),
                     ),
                   ),
                   SizedBox(
@@ -79,8 +86,15 @@ class _IntroState extends State<Intro> {
                       final nome = _nomeSolicitadoController.text.trim();
                       if (nome.isNotEmpty) {
                         nomeProvider.setConfig(nome);
+                        Navigator.pushNamed(context, '/slide');
+                      } else {
+                        mikuSnackBar(
+                          context,
+                          title: 'Miku Diz:',
+                          message: "Por favor, diga-me como devo te chamar",
+                          contentType: ContentType.failure,
+                        );
                       }
-                      Navigator.pushNamed(context, '/slide');
                     },
                   ),
                 ],

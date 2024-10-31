@@ -7,9 +7,12 @@ import 'package:water_reminder/constants/styling.dart';
 import '../../constants/images.dart';
 
 class Background extends StatelessWidget {
-  const Background({
+  String image;
+
+  Background({
     Key? key,
     required this.child,
+    required this.image,
   }) : super(key: key);
 
   final Widget child;
@@ -21,7 +24,7 @@ class Background extends StatelessWidget {
         Container(
           color: Colors.transparent,
           child: Image.asset(
-            Images.bg2,
+            image,
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             fit: SizeConfig.screenHeight < 600

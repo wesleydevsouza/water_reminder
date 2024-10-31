@@ -12,8 +12,6 @@ class AppTheme {
     Color(0xff52c7ad),
   ], begin: Alignment.bottomLeft, end: Alignment.topRight);
 
-  static const Color corLogo = Color(0xFF38ffe2);
-  static const Color corLogo2 = Color(0xFFde1c81);
   static const Color corScaffold = Color(0xFF734acc);
   static const Color corCard = Color(0xFFc6ecfb);
   static const Color corFonte = Colors.white;
@@ -22,6 +20,8 @@ class AppTheme {
   //Texto
   static const Color corTituloDark = Color(0xFF137a7f);
   static const Color corTituloLight = Color(0xFFF8FCF6);
+  static const Color corLogo = Color(0xFF38ffe2);
+  static const Color corLogo2 = Color(0xFFde1c81);
 
   //BG
   static const Color corBGIntro1 = Color(0xFF0043D0);

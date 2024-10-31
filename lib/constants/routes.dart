@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:water_reminder/view/home_view.dart';
 import 'package:water_reminder/view/intro_view.dart';
 import 'package:water_reminder/view/profile_view.dart';
@@ -15,28 +16,33 @@ class RouteGenerator {
         );
 
       case '/intro':
-        return MaterialPageRoute(
-          builder: (context) => const Intro(),
-        );
-
-      case '/home':
-        return MaterialPageRoute(
-          builder: (context) => const Home(),
-        );
-
-      case '/reminderconfig':
-        return MaterialPageRoute(
-          builder: (context) => const ReminderConfig(),
-        );
-
-      case '/profile':
-        return MaterialPageRoute(
-          builder: (context) => const Profile(),
+        return PageTransition(
+          child: const Intro(),
+          type: PageTransitionType.rightToLeft,
         );
 
       case '/slide':
-        return MaterialPageRoute(
-          builder: (context) => const Slide(),
+        return PageTransition(
+          child: const Slide(),
+          type: PageTransitionType.rightToLeft,
+        );
+
+      case '/home':
+        return PageTransition(
+          child: const Home(),
+          type: PageTransitionType.rightToLeft,
+        );
+
+      case '/reminderconfig':
+        return PageTransition(
+          child: const ReminderConfig(),
+          type: PageTransitionType.fade,
+        );
+
+      case '/profile':
+        return PageTransition(
+          child: const Profile(),
+          type: PageTransitionType.rightToLeft,
         );
 
       default:

@@ -8,13 +8,11 @@ class MikuButton extends StatelessWidget {
   final Function()? onPressed;
   final double? width;
   final double? height;
-  final bool disabled;
 
   const MikuButton(
       {Key? key,
       required this.textButton,
       required this.onPressed,
-      this.disabled = false,
       this.width,
       this.height})
       : super(key: key);
@@ -29,7 +27,7 @@ class MikuButton extends StatelessWidget {
         ),
         child: MaterialButton(
           height: SizeConfig.heightMultiplier * 6,
-          onPressed: disabled ? null : onPressed,
+          onPressed: onPressed,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18.0),
           ),

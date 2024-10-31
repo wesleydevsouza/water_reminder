@@ -1,24 +1,36 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:water_reminder/constants/images.dart';
+import 'package:water_reminder/constants/size_config.dart';
+import 'package:water_reminder/constants/styling.dart';
 
 final pages = [
-  const PageData(
+  PageData(
     icon: Icons.bubble_chart,
-    title: "Lembre-se de se\nhidratar!",
-    bgColor: Color(0xFF0043D0),
+    title: "Lembre-se de se!",
+    subTitle: TextLiquidFill(
+      text: 'Hidratar',
+      waveColor: AppTheme.corBGIntro2,
+      boxBackgroundColor: AppTheme.corBGIntro1,
+      textStyle: TextStyle(
+        fontSize: SizeConfig.textMultiplier * 46,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    bgColor: AppTheme.corBGIntro1,
     textColor: Colors.white,
   ),
   const PageData(
     imagePath: Images.miku,
     title: "Vou te ajudar\nNessa tarefa!",
-    textColor: Colors.white,
-    bgColor: Color(0xFFFDBFDD),
+    bgColor: AppTheme.corBGIntro2,
+    textColor: Colors.black,
   ),
   const PageData(
     icon: Icons.date_range,
+    bgColor: AppTheme.corBGIntro3,
     title: "Vamos criar\no primeiro lembrete?",
-    bgColor: Color(0xFFFFFFFF),
   ),
 ];
 
@@ -28,27 +40,30 @@ class Slide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: ConcentricPageView(
-        colors: pages.map((p) => p.bgColor).toList(),
-        radius: screenWidth * 0.1,
-        nextButtonBuilder: (context) => Padding(
-          padding: const EdgeInsets.only(left: 3),
-          child: Icon(
-            Icons.navigate_next,
-            size: screenWidth * 0.08,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: ConcentricPageView(
+          colors: pages.map((p) => p.bgColor).toList(),
+          radius: screenWidth * 0.1,
+          nextButtonBuilder: (context) => Padding(
+            padding: const EdgeInsets.only(left: 3),
+            child: Icon(
+              Icons.navigate_next,
+              size: screenWidth * 0.08,
+            ),
           ),
+          itemCount: 3,
+          onFinish: () {
+            Navigator.pushReplacementNamed(context, '/home');
+          },
+          itemBuilder: (index) {
+            final page = pages[index % pages.length];
+            return SafeArea(
+              child: _Page(page: page),
+            );
+          },
         ),
-        itemCount: 3,
-        onFinish: () {
-          Navigator.pushReplacementNamed(context, '/home');
-        },
-        itemBuilder: (index) {
-          final page = pages[index % pages.length];
-          return SafeArea(
-            child: _Page(page: page),
-          );
-        },
       ),
     );
   }
@@ -56,6 +71,7 @@ class Slide extends StatelessWidget {
 
 class PageData {
   final String? title;
+  final Widget? subTitle;
   final IconData? icon;
   final String? imagePath;
   final Color bgColor;
@@ -63,6 +79,7 @@ class PageData {
 
   const PageData({
     this.title,
+    this.subTitle,
     this.imagePath,
     this.icon,
     this.bgColor = Colors.white,
@@ -93,6 +110,13 @@ class _Page extends StatelessWidget {
           style: TextStyle(
             fontSize: screenHeight * 0.046,
           ),
+        ),
+        SizedBox(
+          height: SizeConfig.heightMultiplier * 1,
+        ),
+        SizedBox(
+          height: SizeConfig.heightMultiplier * 10,
+          child: page.subTitle!,
         ),
       ],
     );
@@ -164,7 +188,7 @@ class _Image extends StatelessWidget {
                   page.imagePath!,
                   fit: BoxFit.cover,
                 )
-              : const SizedBox.shrink(), // Caso não tenha nenhum
+              : const SizedBox.shrink(),
     );
   }
 }

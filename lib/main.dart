@@ -4,12 +4,19 @@ import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/routes.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/constants/styling.dart';
+import 'package:water_reminder/helpers/notification_helper.dart';
 import 'package:water_reminder/providers/name_provider.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationHelper.init();
+  final permissionsGranted = await NotificationHelper.requestPermissions();
+
+  if (!permissionsGranted) {
+    print('Permissões de notificação não foram concedidas.');
+  }
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {

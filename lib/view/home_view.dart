@@ -48,7 +48,8 @@ class Home extends StatelessWidget {
                           textAlign: TextAlign.left,
                           textDirection: TextDirection.ltr,
                           text: TextSpan(
-                            style: GoogleFonts.robotoSlab(
+                            style: TextStyle(
+                              fontFamily: 'RobotoSlab',
                               color: Colors.white70,
                               fontWeight: FontWeight.normal,
                               fontSize: SizeConfig.textMultiplier * 2.8,

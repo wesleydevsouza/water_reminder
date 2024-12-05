@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/styling.dart';
+import 'package:water_reminder/providers/name_provider.dart';
 import 'package:wave/wave.dart';
 import 'package:wave/config.dart';
 
@@ -30,6 +31,23 @@ class _SplashState extends State<Splash> {
     handleAsyncTasks();
   }
 
+  Future<void> handleAsyncTasks() async {
+    final nomeProvider = Provider.of<NomeProvider>(context, listen: false);
+    final String nome = nomeProvider.nome ?? '';
+
+    if (nome.isEmpty) {
+      if (context.mounted) {
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('/intro', (Route<dynamic> route) => false);
+      }
+    } else {
+      if (context.mounted) {
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,10 +74,12 @@ class _SplashState extends State<Splash> {
               child: RichText(
                 textAlign: TextAlign.center,
                 textDirection: TextDirection.ltr,
-                text: TextSpan(
-                  style: GoogleFonts.righteous(
-                      fontSize: 45, color: AppTheme.corLogo2),
-                  children: const <TextSpan>[
+                text: const TextSpan(
+                  style: TextStyle(
+                      fontFamily: 'Righteous',
+                      fontSize: 45,
+                      color: AppTheme.corLogo2),
+                  children: <TextSpan>[
                     TextSpan(text: 'Miku'),
                     TextSpan(
                       text: 'Water',
@@ -73,12 +93,5 @@ class _SplashState extends State<Splash> {
         ],
       ),
     );
-  }
-
-  Future<void> handleAsyncTasks() async {
-    if (context.mounted) {
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil('/intro', (Route<dynamic> route) => false);
-    }
   }
 }

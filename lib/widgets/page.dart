@@ -1,60 +1,4 @@
-import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/material.dart';
-import 'package:water_reminder/constants/images.dart';
-import 'package:water_reminder/constants/styling.dart';
-
-final pages = [
-  const PageData(
-    icon: Icons.bubble_chart,
-    title: "Lembre-se de se\nhidratar!",
-    bgColor: AppTheme.corBGIntro1,
-    textColor: Colors.white,
-  ),
-  const PageData(
-    imagePath: Images.miku,
-    title: "Vou te ajudar\nNessa tarefa!",
-    bgColor: AppTheme.corBGIntro2,
-    textColor: Colors.white,
-  ),
-  const PageData(
-    icon: Icons.date_range,
-    title: "Vamos criar\no primeiro lembrete?",
-    bgColor: AppTheme.corBGIntro3,
-    textColor: Colors.black,
-  ),
-];
-
-class Slide extends StatelessWidget {
-  const Slide({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: ConcentricPageView(
-        colors: pages.map((p) => p.bgColor).toList(),
-        radius: screenWidth * 0.1,
-        nextButtonBuilder: (context) => Padding(
-          padding: const EdgeInsets.only(left: 3),
-          child: Icon(
-            Icons.navigate_next,
-            size: screenWidth * 0.08,
-          ),
-        ),
-        itemCount: 3,
-        onFinish: () {
-          Navigator.pushReplacementNamed(context, '/home');
-        },
-        itemBuilder: (index) {
-          final page = pages[index % pages.length];
-          return SafeArea(
-            child: _Page(page: page),
-          );
-        },
-      ),
-    );
-  }
-}
 
 class PageData {
   final String? title;
@@ -72,10 +16,10 @@ class PageData {
   });
 }
 
-class _Page extends StatelessWidget {
+class Page extends StatelessWidget {
   final PageData page;
 
-  const _Page({Key? key, required this.page}) : super(key: key);
+  const Page({Key? key, required this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

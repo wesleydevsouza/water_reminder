@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:water_reminder/constants/size_config.dart';
 
 class AppTheme {
   static LinearGradient corBg = const LinearGradient(colors: [
@@ -33,45 +34,50 @@ class AppTheme {
   static const Color corBorda = Color(0xff38ffe2);
   static const Color corBordaDisabilitada = Color(0xff52c7ad);
 
-  static final TextStyle titulo = GoogleFonts.josefinSans(
+  static const TextStyle titulo = TextStyle(
+    fontFamily: 'JosefinSans',
     color: corTituloDark,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w900,
     fontSize: 32,
   );
 
-  static final TextStyle tituloLight = GoogleFonts.josefinSans(
+  static const TextStyle tituloLight = TextStyle(
+    fontFamily: 'JosefinSans',
     color: corLogo2,
     fontWeight: FontWeight.bold,
     letterSpacing: 2,
     fontSize: 20,
   );
 
-  static final TextStyle subTitulo = GoogleFonts.sourceCodePro(
+  static const TextStyle subTitulo = TextStyle(
+    fontFamily: 'SourceCode',
     color: corTituloDark,
     fontWeight: FontWeight.bold,
     fontSize: 26,
   );
 
-  static final TextStyle subTituloLight = GoogleFonts.sourceCodePro(
+  static const TextStyle subTituloLight = TextStyle(
+    fontFamily: 'SourceCode',
     color: corFonte,
     fontWeight: FontWeight.bold,
-    fontSize: 20,
-    letterSpacing: 2,
+    fontSize: 26,
   );
 
-  static final TextStyle textoGeral = GoogleFonts.spaceGrotesk(
+  static const TextStyle textoGeral = TextStyle(
+    fontFamily: 'SpaceGrotesk',
     color: corTituloDark,
     fontWeight: FontWeight.bold,
     fontSize: 18,
   );
 
-  static final TextStyle labelText = GoogleFonts.lexend(
+  static const TextStyle labelText = TextStyle(
+    fontFamily: 'Lexend',
     color: corFonte2,
     fontWeight: FontWeight.bold,
     fontSize: 14,
   );
 
-  static final TextTheme lightTextTheme = TextTheme(
+  static const TextTheme lightTextTheme = TextTheme(
     titleLarge: titulo, // Title
     titleMedium: tituloLight,
     displayLarge: subTitulo, // Sub-title

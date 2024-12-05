@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_local_notifications: ^13.0.0
+  flutter_local_notifications: ^18.0.1
   timezone: ^0.9.0
   rxdart: ^0.27.1
   flutter_launcher_icons: 
@@ -37,6 +37,7 @@ dependencies:
   awesome_snackbar_content: ^0.1.4
   shared_preferences: ^2.0.15
   provider: ^6.0.3
+  permission_handler: ^11.1.0
   #animations
   animated_text_kit: ^4.2.2
   page_transition: ^2.1.0
@@ -92,17 +93,31 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: JosefinSans
+      fonts:
+        - asset: assets/fonts/JosefinSans-VariableFont_wght.ttf
+        - asset: assets/fonts/JosefinSans-Italic-VariableFont_wght.ttf
+          style: italic
+        - asset: assets/fonts/JosefinSans-Bold.ttf
+          weight: 700
+    - family: Lexend
+      fonts:
+        - asset: assets/fonts/Lexend-VariableFont_wght.ttf
+    - family: Righteous
+      fonts:
+        - asset: assets/fonts/Righteous-Regular.ttf
+    - family: RobotoSlab
+      fonts:
+        - asset: assets/fonts/RobotoSlab-VariableFont_wght.ttf
+    - family: SpaceGrotesk
+      fonts:
+        - asset: assets/fonts/SpaceGrotesk-VariableFont_wght.ttf
+    - family: SourceCode
+      fonts:
+        - asset: assets/fonts/SourceCodePro-VariableFont_wght.ttf
+        - asset: assets/fonts/SourceCodePro-Italic-VariableFont_wght.ttf
+          style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

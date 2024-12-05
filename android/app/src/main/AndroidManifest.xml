@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.velvet.eclipse.water_reminder">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
    <application
         android:label="Miku Water"
         android:name="${applicationName}"

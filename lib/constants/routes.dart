@@ -6,6 +6,7 @@ import 'package:water_reminder/view/profile_view.dart';
 import 'package:water_reminder/view/reminder_config_view.dart';
 import 'package:water_reminder/view/slide_view.dart';
 import 'package:water_reminder/view/splash_view.dart';
+import 'package:water_reminder/view/task_view.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -43,6 +44,12 @@ class RouteGenerator {
         return PageTransition(
           child: const Profile(),
           type: PageTransitionType.rightToLeft,
+        );
+
+      case '/task':
+        return PageTransition(
+          child: const Task(),
+          type: PageTransitionType.fade,
         );
 
       default:

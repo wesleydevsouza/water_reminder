@@ -105,9 +105,19 @@ class Home extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, '/reminderconfig');
                         },
-                        height: SizeConfig.heightMultiplier * 14,
                         subtitulo: 'Configure um novo lembrete com intervalos',
                       ),
+                      // SizedBox(
+                      //   height: SizeConfig.heightMultiplier * 4,
+                      // ),
+                      // MikuCard(
+                      //   titulo: 'Task',
+                      //   icon: Images.bottle,
+                      //   onPressed: () {
+                      //     Navigator.pushNamed(context, '/task');
+                      //   },
+                      //   subtitulo: 'Crie tasks',
+                      // ),
                     ],
                   ),
                   SizedBox(

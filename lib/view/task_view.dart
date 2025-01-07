@@ -30,7 +30,6 @@ class Task extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, '/reminderconfig');
                       },
-                      height: SizeConfig.heightMultiplier * 14,
                       subtitulo: 'Configure um novo lembrete com intervalos',
                     ),
                   ],

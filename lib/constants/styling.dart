@@ -34,6 +34,12 @@ class AppTheme {
   static const Color corBorda = Color(0xff38ffe2);
   static const Color corBordaDisabilitada = Color(0xff52c7ad);
 
+  //Rewards
+  static const Color corRealce = Color(0xffAD49E1);
+  static const Color corBackground = Color(0xff2E073F);
+  static const Color corTexto = Color(0xff7A1CAC);
+  static const Color corIcone = Color(0xffEBD3F8);
+
   static const TextStyle titulo = TextStyle(
     fontFamily: 'JosefinSans',
     color: corTituloDark,

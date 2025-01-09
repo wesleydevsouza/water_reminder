@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/background.dart';
 import 'package:water_reminder/constants/images.dart';
@@ -107,17 +106,17 @@ class Home extends StatelessWidget {
                         },
                         subtitulo: 'Configure um novo lembrete com intervalos',
                       ),
-                      // SizedBox(
-                      //   height: SizeConfig.heightMultiplier * 4,
-                      // ),
-                      // MikuCard(
-                      //   titulo: 'Task',
-                      //   icon: Images.bottle,
-                      //   onPressed: () {
-                      //     Navigator.pushNamed(context, '/task');
-                      //   },
-                      //   subtitulo: 'Crie tasks',
-                      // ),
+                      SizedBox(
+                        height: SizeConfig.heightMultiplier * 4,
+                      ),
+                      MikuCard(
+                        titulo: 'Task',
+                        icon: Images.bottle,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/task');
+                        },
+                        subtitulo: 'Crie tasks',
+                      ),
                     ],
                   ),
                   SizedBox(

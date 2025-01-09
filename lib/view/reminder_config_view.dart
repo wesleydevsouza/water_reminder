@@ -10,7 +10,7 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'package:water_reminder/helpers/notification_helper.dart';
 import 'package:water_reminder/providers/name_provider.dart';
 import 'package:water_reminder/widgets/miku_button.dart';
-import 'package:water_reminder/widgets/top_bar.dart';
+import 'package:water_reminder/widgets/top_back_button.dart';
 
 class ReminderConfig extends StatefulWidget {
   const ReminderConfig({super.key});
@@ -45,7 +45,7 @@ class _ReminderConfigState extends State<ReminderConfig> {
               children: [
                 const Align(
                   alignment: Alignment.centerLeft,
-                  child: TopBar(),
+                  child: TopBackButton(),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,

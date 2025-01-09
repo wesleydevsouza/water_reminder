@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/constants/styling.dart';
 
-class MikuCard extends StatelessWidget {
+class MikuTaskCard extends StatelessWidget {
   final String titulo;
   final String subtitulo;
   final String icon;
   final Function()? onPressed;
 
-  const MikuCard({
+  const MikuTaskCard({
     Key? key,
     required this.titulo,
     required this.subtitulo,
@@ -20,6 +20,8 @@ class MikuCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool value = false;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: InkWell(
@@ -88,21 +90,15 @@ class MikuCard extends StatelessWidget {
                         const SizedBox(height: 8.0),
                         Row(
                           children: [
-                            // const SizedBox(width: 8.0),
-                            // Container(
-                            //   width: 56,
-                            //   height: 56,
-                            //   decoration: const BoxDecoration(
-                            //     shape: BoxShape.circle,
-                            //   ),
-                            //   child: ClipOval(
-                            //     child: Image.asset(
-                            //       icon,
-                            //       alignment: Alignment.center,
-                            //       fit: BoxFit.fill,
-                            //     ),
-                            //   ),
-                            // ),
+                            const SizedBox(width: 8.0),
+                            Container(
+                              width: 56,
+                              height: 56,
+                              child: Checkbox(
+                                value: value,
+                                onChanged: (value) {},
+                              ),
+                            ),
                             const SizedBox(width: 16.0),
                             Expanded(
                               child: Padding(

@@ -5,7 +5,7 @@ import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/constants/styling.dart';
 import 'package:water_reminder/providers/name_provider.dart';
 import 'package:water_reminder/widgets/miku_button.dart';
-import 'package:water_reminder/widgets/top_bar.dart';
+import 'package:water_reminder/widgets/top_back_button.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -22,7 +22,7 @@ class Profile extends StatelessWidget {
             children: [
               const Align(
                 alignment: Alignment.centerLeft,
-                child: TopBar(),
+                child: TopBackButton(),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

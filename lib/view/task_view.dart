@@ -3,7 +3,8 @@ import 'package:water_reminder/constants/background.dart';
 import 'package:water_reminder/constants/images.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/constants/styling.dart';
-import 'package:water_reminder/widgets/miku_card.dart';
+import 'package:water_reminder/widgets/miku_task_card.dart';
+import 'package:water_reminder/widgets/top_bar.dart';
 
 class Task extends StatelessWidget {
   const Task({super.key});
@@ -18,21 +19,24 @@ class Task extends StatelessWidget {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: SizeConfig.heightMultiplier * 30,
-                    ),
-                    MikuCard(
-                      titulo: 'Configurar um Lembrete',
-                      icon: Images.bottle,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/reminderconfig');
-                      },
-                      subtitulo: 'Configure um novo lembrete com intervalos',
-                    ),
-                  ],
+                TopBar(),
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: SizeConfig.heightMultiplier * 30,
+                      ),
+                      MikuTaskCard(
+                        titulo: 'Type',
+                        icon: Images.bottle,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/reminderconfig');
+                        },
+                        subtitulo: 'Description',
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

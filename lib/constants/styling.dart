@@ -77,10 +77,10 @@ class AppTheme {
   );
 
   static const TextStyle labelText = TextStyle(
-    fontFamily: 'Lexend',
-    color: corFonte2,
+    fontFamily: 'Frutiger',
+    color: corFonte,
     fontWeight: FontWeight.bold,
-    fontSize: 14,
+    fontSize: 32,
   );
 
   static const TextTheme lightTextTheme = TextTheme(

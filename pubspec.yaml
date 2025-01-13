@@ -118,6 +118,9 @@ flutter:
         - asset: assets/fonts/SourceCodePro-VariableFont_wght.ttf
         - asset: assets/fonts/SourceCodePro-Italic-VariableFont_wght.ttf
           style: italic
+    - family: Frutiger
+      fonts:
+        - asset: assets/fonts/Frutiger.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -48,7 +48,7 @@ class RouteGenerator {
 
       case '/task':
         return PageTransition(
-          child: const Task(),
+          child: Task(),
           type: PageTransitionType.fade,
         );
 

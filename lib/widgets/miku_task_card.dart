@@ -8,6 +8,7 @@ class MikuTaskCard extends StatelessWidget {
   final String titulo;
   final String subtitulo;
   final String icon;
+  final String value;
   final Function()? onPressed;
 
   const MikuTaskCard({
@@ -15,13 +16,12 @@ class MikuTaskCard extends StatelessWidget {
     required this.titulo,
     required this.subtitulo,
     required this.icon,
+    required this.value,
     this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    bool value = false;
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: ClipRRect(
@@ -118,6 +118,18 @@ class MikuTaskCard extends StatelessWidget {
                                 ),
                                 overflow: TextOverflow.clip,
                               ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Text(
+                              value,
+                              style: const TextStyle(
+                                color: AppTheme.corIcone,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.clip,
                             ),
                           ),
                         ],

@@ -108,7 +108,8 @@ class _TaskState extends State<Task> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        Navigator.of(context).pop();
+                                        Navigator.pushNamed(
+                                            context, '/newTask');
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -146,6 +147,33 @@ class _TaskState extends State<Task> {
                               SizedBox(
                                 height: SizeConfig.heightMultiplier * 2,
                               ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: List.generate(
+                                    4,
+                                    (index) => InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        width: 200,
+                                        height: 100,
+                                        margin: EdgeInsets.all(8.0),
+                                        color: Colors.purple,
+                                        child: Center(
+                                          child: Text(
+                                            'Item $index',
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: SizeConfig.heightMultiplier * 2,
+                              ),
                             ],
                           ),
                         ),
@@ -158,42 +186,42 @@ class _TaskState extends State<Task> {
                                   SizedBox(
                                     height: SizeConfig.heightMultiplier * 2,
                                   ),
-                                  const MikuTaskCard(
+                                  MikuTaskCard(
                                     titulo: 'titulo',
-                                    subtitulo: 'Nome',
+                                    subtitulo: 'subtitulo',
                                     icon: Images.bottle,
+                                    value: '10',
+                                    onPressed: () {},
                                   ),
                                   SizedBox(
                                     height: SizeConfig.heightMultiplier * 2,
                                   ),
-                                  const MikuTaskCard(
+                                  MikuTaskCard(
                                     titulo: 'titulo',
-                                    subtitulo: 'Nome',
+                                    subtitulo: 'subtitulo',
                                     icon: Images.bottle,
+                                    value: '10',
+                                    onPressed: () {},
                                   ),
                                   SizedBox(
                                     height: SizeConfig.heightMultiplier * 2,
                                   ),
-                                  const MikuTaskCard(
+                                  MikuTaskCard(
                                     titulo: 'titulo',
-                                    subtitulo: 'Nome',
+                                    subtitulo: 'subtitulo',
                                     icon: Images.bottle,
+                                    value: '10',
+                                    onPressed: () {},
                                   ),
                                   SizedBox(
                                     height: SizeConfig.heightMultiplier * 2,
                                   ),
-                                  const MikuTaskCard(
+                                  MikuTaskCard(
                                     titulo: 'titulo',
-                                    subtitulo: 'Nome',
+                                    subtitulo: 'subtitulo',
                                     icon: Images.bottle,
-                                  ),
-                                  SizedBox(
-                                    height: SizeConfig.heightMultiplier * 2,
-                                  ),
-                                  const MikuTaskCard(
-                                    titulo: 'titulo',
-                                    subtitulo: 'Nome',
-                                    icon: Images.bottle,
+                                    value: '10',
+                                    onPressed: () {},
                                   ),
                                   SizedBox(
                                     height: SizeConfig.heightMultiplier * 2,

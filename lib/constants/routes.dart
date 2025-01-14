@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:water_reminder/view/home_view.dart';
 import 'package:water_reminder/view/intro_view.dart';
+import 'package:water_reminder/view/new_task_view.dart';
 import 'package:water_reminder/view/profile_view.dart';
 import 'package:water_reminder/view/reminder_config_view.dart';
 import 'package:water_reminder/view/slide_view.dart';
@@ -50,6 +51,12 @@ class RouteGenerator {
         return PageTransition(
           child: Task(),
           type: PageTransitionType.fade,
+        );
+
+      case '/newTask':
+        return PageTransition(
+          child: NewTask(),
+          type: PageTransitionType.rightToLeft,
         );
 
       default:

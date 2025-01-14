@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:water_reminder/constants/background.dart';
 import 'package:water_reminder/constants/images.dart';
 import 'package:water_reminder/constants/size_config.dart';
-import 'package:water_reminder/constants/styling.dart';
 import 'package:water_reminder/providers/name_provider.dart';
 import 'package:water_reminder/widgets/miku_card.dart';
 

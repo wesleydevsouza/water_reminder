@@ -14,6 +14,24 @@ class NewTask extends StatefulWidget {
 
 class _NewTaskState extends State<NewTask> {
   late TextEditingController _nomeSolicitadoController;
+  final List<IconData> iconsList = [
+    Icons.person,
+    Icons.group,
+    Icons.water_drop,
+    Icons.eco,
+    Icons.pets,
+    Icons.recycling,
+    Icons.medication,
+    Icons.bedtime,
+    Icons.monitor_weight,
+    Icons.shopping_cart,
+    Icons.code,
+    Icons.bookmark,
+    Icons.block,
+    Icons.pool,
+    Icons.fitness_center,
+    Icons.directions_run,
+  ];
 
   @override
   void initState() {
@@ -83,9 +101,103 @@ class _NewTaskState extends State<NewTask> {
                     height: SizeConfig.heightMultiplier * 2,
                   ),
                   Container(
-                    height: SizeConfig.heightMultiplier * 20,
-                    width: SizeConfig.widthMultiplier * 90,
-                    color: Colors.white,
+                    width: SizeConfig.widthMultiplier * 95,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        top: BorderSide(
+                          color: Colors.white.withOpacity(0.3),
+                          width: 2,
+                        ),
+                      ),
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.white.withOpacity(0.2),
+                          Colors.white.withOpacity(0.05),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: List.generate(
+                              8,
+                              (index) => Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          AppTheme.corRealce.withOpacity(0.3),
+                                          AppTheme.corTexto.withOpacity(0.1),
+                                        ],
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                      ),
+                                      border: Border.all(
+                                        color: Colors.white.withOpacity(0.2),
+                                        width: 2,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Icon(
+                                        iconsList[index],
+                                        color: AppTheme.corIcone,
+                                        size: SizeConfig.heightMultiplier * 4,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Row(
+                            children: List.generate(
+                              8,
+                              (index) => Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          AppTheme.corRealce.withOpacity(0.3),
+                                          AppTheme.corTexto.withOpacity(0.1),
+                                        ],
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                      ),
+                                      border: Border.all(
+                                        color: Colors.white.withOpacity(0.2),
+                                        width: 2,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Icon(
+                                        iconsList[index + 8],
+                                        color: AppTheme.corIcone,
+                                        size: SizeConfig.heightMultiplier * 4,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 3,
@@ -103,31 +215,70 @@ class _NewTaskState extends State<NewTask> {
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 2,
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: List.generate(
-                        4,
-                        (index) => InkWell(
-                          onTap: () {},
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: AppTheme.corScaffold.withOpacity(0.8),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(20.0),
-                              ),
-                            ),
-                            width: 200,
-                            height: 100,
-                            margin: EdgeInsets.all(8.0),
-                            child: Center(
-                              child: Text(
-                                'Item $index',
-                                style: TextStyle(color: Colors.white),
+                  Container(
+                    width: SizeConfig.widthMultiplier * 95,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        top: BorderSide(
+                          color: Colors.white.withOpacity(0.3),
+                          width: 2,
+                        ),
+                      ),
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.white.withOpacity(0.2),
+                          Colors.white.withOpacity(0.05),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: List.generate(
+                              8,
+                              (index) => Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border(
+                                        top: BorderSide(
+                                          color: Colors.white.withOpacity(0.3),
+                                          width: 2,
+                                        ),
+                                      ),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          AppTheme.corRealce.withOpacity(0.6),
+                                          AppTheme.corTexto.withOpacity(0.4),
+                                        ],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      borderRadius: BorderRadius.circular(32),
+                                    ),
+                                    width: 150,
+                                    height: SizeConfig.heightMultiplier * 6,
+                                    margin: const EdgeInsets.all(8.0),
+                                    child: Center(
+                                      child: Text(
+                                        'Item $index',
+                                        style: const TextStyle(
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                   ),

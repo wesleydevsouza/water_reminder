@@ -13,8 +13,11 @@ Now it also includes the ability to **create custom reminders** manually.
 
 ## 🖼️ Art Credits:
 
--I didn't found Miku's original artists, every post I saw on Reddit had the user deleted, so I'll leave the [the link here]([URL](https://www.reddit.com/r/Vocaloid/comments/exhjql/i_did_a_cute_miku_chibi_and_thought_it_belonged/))
+-I didn't found Miku's original artists, every post I saw on Reddit had the user deleted, so I'll leave the the link here
+https://www.reddit.com/r/Vocaloid/comments/exhjql/i_did_a_cute_miku_chibi_and_thought_it_belonged
+
 -Miku Icon by **Disqette**
+
 -Old Background art by **Kore Michi** (Removed)
 
 ---

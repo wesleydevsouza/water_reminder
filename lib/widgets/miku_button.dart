@@ -8,20 +8,23 @@ class MikuButton extends StatelessWidget {
   final Function()? onPressed;
   final double? width;
   final double? height;
+  final BoxShadow? boxShadow;
 
-  const MikuButton(
-      {Key? key,
-      required this.textButton,
-      required this.onPressed,
-      this.width,
-      this.height})
-      : super(key: key);
+  const MikuButton({
+    Key? key,
+    required this.textButton,
+    required this.onPressed,
+    this.width,
+    this.height,
+    this.boxShadow,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         constraints: BoxConstraints(minWidth: SizeConfig.widthMultiplier * 85),
         decoration: BoxDecoration(
+          boxShadow: boxShadow != null ? [boxShadow!] : null,
           gradient: AppTheme.corBotao,
           borderRadius: BorderRadius.circular(18.0),
         ),

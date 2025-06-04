@@ -5,6 +5,7 @@ import 'package:water_reminder/constants/background.dart';
 import 'package:water_reminder/constants/images.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/providers/name_provider.dart';
+import 'package:water_reminder/widgets/aero_button.dart';
 import 'package:water_reminder/widgets/fade_widget.dart';
 import 'package:water_reminder/widgets/miku_button.dart';
 import 'package:water_reminder/widgets/miku_snackbar.dart';
@@ -66,10 +67,12 @@ class _IntroState extends State<Intro> {
                     height: SizeConfig.heightMultiplier * 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 28.0),
                     child: MikuTextField(
+                      activeBorderColor: Color(0xff5bd2f4),
+                      disabledBorderColor: Color(0xff043c99),
                       controller: _nomeSolicitadoController,
-                      label: "Nome",
+                      label: "Digite seu nome",
                       onChanged: ((value) {
                         setState(() {});
                       }),
@@ -80,9 +83,10 @@ class _IntroState extends State<Intro> {
                         ? SizeConfig.heightMultiplier * 8
                         : SizeConfig.heightMultiplier * 10,
                   ),
-                  MikuButton(
-                    textButton: 'AVANÇAR',
-                    onPressed: () {
+                  AeroButton(
+                    width: SizeConfig.widthMultiplier * 60,
+                    text: "AVANÇAR  ",
+                    onTap: () {
                       final nome = _nomeSolicitadoController.text.trim();
                       if (nome.isNotEmpty) {
                         FocusManager.instance.primaryFocus?.unfocus();
@@ -97,6 +101,12 @@ class _IntroState extends State<Intro> {
                         );
                       }
                     },
+                    gradientColors: const [
+                      Color(0xff043c99),
+                      Color(0xff0e87ea),
+                      Color(0xff043c99),
+                    ],
+                    borderColor: const Color(0xff0e87ea),
                   ),
                 ],
               ),

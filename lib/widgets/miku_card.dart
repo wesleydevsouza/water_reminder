@@ -1,5 +1,6 @@
-import 'dart:ui';
+//new
 
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/constants/styling.dart';
@@ -25,10 +26,11 @@ class MikuCard extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
             child: Container(
-              width: MediaQuery.of(context).size.width,
+              clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 border: Border(
@@ -42,89 +44,80 @@ class MikuCard extends StatelessWidget {
                   ),
                 ),
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.white.withOpacity(0.2),
-                          Colors.white.withOpacity(0.05),
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.white.withOpacity(0.2),
+                      Colors.white.withOpacity(0.05),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.55,
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        color: AppTheme.corScaffold.withOpacity(0.8),
+                        borderRadius: const BorderRadius.only(
+                          bottomRight: Radius.circular(20.0),
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(12),
+                      child: Center(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            titulo,
+                            style: TextStyle(
+                              shadows: [
+                                Shadow(
+                                  offset: const Offset(2, 2),
+                                  color: Colors.black.withOpacity(0.2),
+                                ),
+                              ],
+                              color: AppTheme.corFonte,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    const SizedBox(height: 8.0),
+                    Row(
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.55,
-                          padding: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            color: AppTheme.corScaffold.withOpacity(0.8),
-                            borderRadius: const BorderRadius.only(
-                              bottomRight: Radius.circular(20.0),
-                            ),
-                          ),
-                          child: Center(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                titulo,
-                                style: const TextStyle(
-                                  color: AppTheme.corFonte,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w900,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 8.0),
-                        Row(
-                          children: [
-                            // const SizedBox(width: 8.0),
-                            // Container(
-                            //   width: 56,
-                            //   height: 56,
-                            //   decoration: const BoxDecoration(
-                            //     shape: BoxShape.circle,
-                            //   ),
-                            //   child: ClipOval(
-                            //     child: Image.asset(
-                            //       icon,
-                            //       alignment: Alignment.center,
-                            //       fit: BoxFit.fill,
-                            //     ),
-                            //   ),
-                            // ),
-                            const SizedBox(width: 16.0),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 8),
-                                child: Text(
-                                  subtitulo,
-                                  style: const TextStyle(
-                                    color: AppTheme.corFonte,
-                                    fontSize: 18.0,
+                        const SizedBox(width: 16.0),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: Text(
+                              subtitulo,
+                              style: TextStyle(
+                                shadows: [
+                                  Shadow(
+                                    offset: const Offset(2, 2),
+                                    color: Colors.black.withOpacity(0.4),
                                   ),
-                                  overflow: TextOverflow.clip,
-                                ),
+                                ],
+                                color: AppTheme.corFonte,
+                                fontSize: 18.0,
                               ),
+                              overflow: TextOverflow.clip,
                             ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: SizeConfig.heightMultiplier * 2,
+                          ),
                         ),
                       ],
                     ),
-                  ),
+                    SizedBox(
+                      height: SizeConfig.heightMultiplier * 2,
+                    ),
+                  ],
                 ),
               ),
             ),

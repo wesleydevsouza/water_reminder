@@ -42,7 +42,6 @@ class _MyAppState extends State<MyApp> {
       ],
       child: LayoutBuilder(builder: (context, constraints) {
         SizeConfig().init(constraints);
-
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Miku Water Reminder',

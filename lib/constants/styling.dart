@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:water_reminder/constants/size_config.dart';
 
 class AppTheme {
   static LinearGradient corBg = const LinearGradient(colors: [
@@ -19,7 +17,7 @@ class AppTheme {
   static const Color corFonte2 = Colors.black;
 
   //Texto
-  static const Color corTituloDark = Color(0xFF137a7f);
+  static const Color corTituloDark = Color(0xFF133E44);
   static const Color corTituloLight = Color(0xFFF8FCF6);
   static const Color corLogo = Color(0xFF38ffe2);
   static const Color corLogo2 = Color(0xFFe12885);
@@ -42,7 +40,7 @@ class AppTheme {
 
   static const TextStyle titulo = TextStyle(
     fontFamily: 'JosefinSans',
-    color: corTituloDark,
+    color: corTituloLight,
     fontWeight: FontWeight.w900,
     fontSize: 32,
   );

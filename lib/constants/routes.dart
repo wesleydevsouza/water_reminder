@@ -60,7 +60,7 @@ class RouteGenerator {
         );
 
       default:
-        return MaterialPageRoute(builder: (context) => const Splash());
+        return MaterialPageRoute(builder: (context) => NewTask());
     }
   }
 }

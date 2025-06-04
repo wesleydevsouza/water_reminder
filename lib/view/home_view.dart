@@ -4,6 +4,7 @@ import 'package:water_reminder/constants/background.dart';
 import 'package:water_reminder/constants/images.dart';
 import 'package:water_reminder/constants/size_config.dart';
 import 'package:water_reminder/providers/name_provider.dart';
+import 'package:water_reminder/widgets/aero_button.dart';
 import 'package:water_reminder/widgets/miku_card.dart';
 
 class Home extends StatelessWidget {
@@ -98,12 +99,12 @@ class Home extends StatelessWidget {
                   Column(
                     children: [
                       MikuCard(
-                        titulo: 'Configurar um Lembrete',
+                        titulo: 'Reminders',
                         icon: Images.bottle,
                         onPressed: () {
                           Navigator.pushNamed(context, '/reminderconfig');
                         },
-                        subtitulo: 'Configure um novo lembrete com intervalos',
+                        subtitulo: 'Manage your reminders',
                       ),
                       SizedBox(
                         height: SizeConfig.heightMultiplier * 4,
@@ -114,7 +115,7 @@ class Home extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, '/task');
                         },
-                        subtitulo: 'Crie tasks',
+                        subtitulo: 'Manage your tasks',
                       ),
                     ],
                   ),
